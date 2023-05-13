@@ -1,17 +1,20 @@
 import Image from 'next/image'
 import { Inter } from 'next/font/google'
+import { useLanguage } from '@/hooks/useLanguage';
 
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
+  const { language, setEnglish, setSpanish } = useLanguage();
   return (
     <>
     <header>
       <div>Logo</div>
-      <button>
-        <span>English</span>
-        <span>Spanish</span>
-      </button>
+      <div>
+        <button onClick={() => setEnglish()}>English</button>
+        <button onClick={() => setSpanish()}>Spanish</button>
+      </div>
+      <span>current language: {language}</span>
     </header>
     
     <main
